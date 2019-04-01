@@ -1,14 +1,17 @@
 export default [
   {
     title: "Home",
-    link: "home"
+    link: "home",
+    href:"/"
   },
   {
     title: "Contact",
-    link: "contact"
+    link: "contact",
+    href:"/contact"
   },
   {
     title: "About us",
-    link: "about-us"
+    link: "about-us",
+    href:"/about"
   }
 ];
