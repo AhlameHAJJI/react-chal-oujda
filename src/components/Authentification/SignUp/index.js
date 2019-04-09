@@ -1,12 +1,11 @@
 import React from "react";
 
-class Contact extends React.Component {
+class SignUp extends React.Component {
   state = {
-    Email: "",
-    Message: "",
-    FirstName: "",
-    LastName: "",
-    Tel: ""
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: ""
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -18,8 +17,8 @@ class Contact extends React.Component {
   render() {
     return (
       <div className="container">
-        <h5 className="grey-text text-darken-3"> Contact Us</h5>
-        <form onSubmit={this.handleSubmit}>
+        <h5 className="grey-text text-darken-3"> Sign Up</h5>
+        <form onSubmit={this.handleSubmit} className="white">
           <div className="form-group">
             <label htmlFor="FirstName">First Name</label>
             <input
@@ -28,7 +27,7 @@ class Contact extends React.Component {
               id="firstName"
               placeholder="Enter firstName"
               onChange={this.handleChange}
-              value={this.state.FirstName}
+              value={this.state.firstName}
             />
           </div>
           <div className="form-group">
@@ -43,46 +42,34 @@ class Contact extends React.Component {
             />
           </div>
           <div className="form-group">
-            <div className="form-group">
-              <label htmlFor="Email">Email address</label>
-              <input
-                type="email"
-                className="form-control"
-                id="Email"
-                aria-describedby="emailHelp"
-                placeholder="Enter email"
-                onChange={this.handleChange}
-                value={this.state.Email}
-              />
-              <small id="emailHelp" className="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small>
-            </div>
-            <label htmlFor="tel">Tel</label>
+            <label htmlFor="Email">Email address</label>
             <input
-              type="text"
+              type="email"
               className="form-control"
-              id="tel"
-              placeholder="Enter Tel"
+              id="Email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
               onChange={this.handleChange}
-              value={this.state.tel}
+              value={this.state.email}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea
-              className="form-control rounded-0"
-              id="message"
-              placeholder="Message"
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              id="password"
+              placeholder="Enter password"
               onChange={this.handleChange}
+              value={this.state.password}
             />
           </div>
           <button type="submit" className="btn btn-primary">
-            Submit
+            Sign Up
           </button>
         </form>
       </div>
     );
   }
 }
-export default Contact;
+export default SignUp;
