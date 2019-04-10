@@ -1,15 +1,19 @@
 import React from "react";
+import { connect } from "react-redux";
+import { contactUsActions } from "store/actions/contactUsActions";
 
 class Contact extends React.Component {
   state = {
     Email: "",
-    Message: "",
     FirstName: "",
     LastName: "",
-    Tel: ""
+    Tel: "",
+    Message: ""
   };
   handleSubmit = e => {
     e.preventDefault();
+    this.props.contactUsActions(this.state);
+    this.props.history.push("/");
     console.log(this.state);
   };
   handleChange = e => {
@@ -25,18 +29,18 @@ class Contact extends React.Component {
             <input
               type="text"
               className="form-control"
-              id="firstName"
+              id="FirstName"
               placeholder="Enter firstName"
               onChange={this.handleChange}
-              value={this.state.FirstName}
+              value={this.state.firstName}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="LastName">Last Name</label>
             <input
               type="text"
               className="form-control"
-              id="lastName"
+              id="LastName"
               placeholder="Enter lastName"
               onChange={this.handleChange}
               value={this.state.lastName}
@@ -58,21 +62,21 @@ class Contact extends React.Component {
                 We'll never share your email with anyone else.
               </small>
             </div>
-            <label htmlFor="tel">Tel</label>
+            <label htmlFor="Tel">Tel</label>
             <input
               type="text"
               className="form-control"
-              id="tel"
+              id="Tel"
               placeholder="Enter Tel"
               onChange={this.handleChange}
-              value={this.state.tel}
+              value={this.state.Tel}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="message">Message</label>
+            <label htmlFor="Message">Message</label>
             <textarea
               className="form-control rounded-0"
-              id="message"
+              id="Message"
               placeholder="Message"
               onChange={this.handleChange}
             />
@@ -85,4 +89,14 @@ class Contact extends React.Component {
     );
   }
 }
-export default Contact;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    contactUsActions: contact => dispatch(contactUsActions(contact))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Contact);
