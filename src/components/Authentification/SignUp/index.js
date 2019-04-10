@@ -1,5 +1,5 @@
 import React from "react";
-
+import { connect } from "react-redux";
 class SignUp extends React.Component {
   state = {
     email: "",
@@ -72,4 +72,10 @@ class SignUp extends React.Component {
     );
   }
 }
-export default SignUp;
+// const mapStateToProps = (state) => {
+//   console.log(state)
+//   return {
+
+//   }
+// }
+export default connect()(SignUp);
